@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>Add Book</title>
@@ -29,7 +29,11 @@
     </div>
     <div class="col-6 mb-3">
       <label class="form-label" for="category">Category:</label>
-      <input class="form-control" type="text" th:field="*{category}" id="category">
+      <select class="form-control" id="category" name="category.id">
+      <option value="">-- Select Category --</option>
+      <option th:each="category : ${categories}" th:value="${category.id}"
+              th:text="${categoty.name}"></option>
+      </select>
     </div>
     <input type="submit" class="btn btn-primary" value="Save">
   </form>
